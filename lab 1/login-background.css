@@ -1,0 +1,41 @@
+.bg-image-form {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+input[type="text"] {
+  background-image: url('img/user.png');
+}
+
+input[type="password"] {
+  background-image: url('img/pass.png');
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #927057;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
