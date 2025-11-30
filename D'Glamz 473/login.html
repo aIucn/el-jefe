@@ -31,10 +31,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             max-width: 400px;
             width: 90%;
-            text-align: center;
         }
 
         h2 {
+            text-align: center;
             margin-bottom: 20px;
             font-size: 2rem;
             color: var(--light-text);
@@ -48,7 +48,6 @@
         label {
             margin-bottom: 8px;
             font-weight: bold;
-            text-align: left;
         }
 
         input[type="text"],
@@ -71,33 +70,9 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s, transform 0.3s;
-            margin-top: 10px;
         }
 
         button:hover {
-            background: linear-gradient(135deg, #f107a3, #7b2ff7);
-            transform: scale(1.05);
-        }
-
-        .footer-text {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: var(--light-text);
-        }
-
-        .create-account-btn {
-            margin-top: 10px;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #7b2ff7, #f107a3);
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .create-account-btn:hover {
             background: linear-gradient(135deg, #f107a3, #7b2ff7);
             transform: scale(1.05);
         }
@@ -115,10 +90,6 @@
 
             <button type="submit">Login</button>
         </form>
-        <div class="footer-text">
-            <p>Don't have an account?</p>
-            <button class="create-account-btn" onclick="window.location.href='register.html'">Create one!</button>
-        </div>
     </div>
 </body>
 </html>
