@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+            --accent-color: #7b2ff7; 
+            --light-text: #ffffff;
+            --dark-background: #0f2027;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://i.pinimg.com/originals/ca/92/06/ca92068e40ef52cadf49ea1d0a98bf6c.gif') no-repeat center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--light-text);
+        }
+
+        .container {
+            background-color: rgba(15, 32, 39, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--light-text);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: #222;
+            color: var(--light-text);
+        }
+
+        button {
+            padding: 12px;
+            background: linear-gradient(135deg, #7b2ff7, #f107a3);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #f107a3, #7b2ff7);
+            transform: scale(1.05);
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: var(--light-text);
+        }
+
+        .create-account-btn {
+            margin-top: 10px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #7b2ff7, #f107a3);
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .create-account-btn:hover {
+            background: linear-gradient(135deg, #f107a3, #7b2ff7);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer-text">
+            <p>Don't have an account?</p>
+            <button class="create-account-btn" onclick="window.location.href='register.html'">Create one!</button>
+        </div>
+    </div>
+</body>
+</html>
