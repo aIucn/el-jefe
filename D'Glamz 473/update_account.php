@@ -135,8 +135,8 @@ footer {
 <body>
 <div class="navbar">
   <ul>
-    <li><a href="index.php">Home</a></li>
-    <li><a href="about.php">About Us</a></li>
+    <li><a href="homepage.php">Home</a></li>
+    <li><a href="aboutus.php">About Us</a></li>
     <li><a href="shop.php">Shop</a></li>
     <li><a href="contact.php">Contact</a></li>
     <li><a href="update_account.php" class="active">Update Account</a></li>
@@ -158,7 +158,7 @@ footer {
   </form>
 </div>
 <footer>
-  &copy; 2024 Your Website. All rights reserved.
+  &copy; 2025 D'Glamz 473. All rights reserved.
 </footer>
 </body>
 </html>

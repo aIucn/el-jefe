@@ -21,12 +21,9 @@ $user = $result->fetch_assoc();
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Welcome to Your Account</title>
-<!-- Font Awesome & Animate.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"/>
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet" />
-<!-- Your CSS -->
 <link rel="stylesheet" href="homepage.css" />
 <style>
 :root {
@@ -157,34 +154,27 @@ footer {
 </style>
 </head>
 <body>
-<!-- Account Icon -->
 <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
-    <a href="account_settings.html" style="text-decoration:none; color: inherit;">
+    <a href="update_account.php" style="text-decoration:none; color: inherit;">
         <button style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
             <i class="fas fa-user-circle"></i>
         </button>
     </a>
 </div>
-
-<!-- Navigation -->
 <nav class="navbar">
     <ul>
-        <li><a href="homepage.html" class="active">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="shop.html">Shop</a></li>
+        <li><a href="homepage.php" class="active">Home</a></li>
+        <li><a href="aboutus.php">About Us</a></li>
+        <li><a href="shop.php">Shop</a></li>
         <li><a href="contact.php">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.php">Login</a></li>
     </ul>
 </nav>
-
-<!-- Hero Section -->
 <header class="hero">
     <h1>Welcome to D'Glamz 473</h1>
     <p>Stylish clothing for every occasion</p>
     <a href="shop.php" class="btn">Shop Now</a>
 </header>
-
-<!-- Shop by Category -->
 <section class="categories">
     <h2>Shop by Category</h2>
     <div class="category-container">
@@ -208,8 +198,6 @@ footer {
         </a>
     </div>
 </section>
-
-<!-- Footer -->
 <footer>
     <p>&copy; 2025 D'Glamz 473. All rights reserved.</p>
 </footer>

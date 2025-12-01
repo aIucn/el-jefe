@@ -51,10 +51,38 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
+
 .navbar {
   width: 100%;
+  background: linear-gradient(135deg, #0f2027, #203a43);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 15px;
+}
+.navbar a {
+  text-decoration: none;
+  color: var(--light-text);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 12px;
+  transition: color 0.3s, transform 0.3s;
+}
+.navbar a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
 }
 .container {
   background-color: rgba(15, 32, 39, 0.8);
@@ -63,7 +91,7 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   max-width: 400px;
   width: 90%;
-  margin-top: 20px;
+  margin: 20px auto;
 }
 h2 {
   margin-bottom: 20px;
@@ -108,9 +136,26 @@ button:hover {
   text-align: center;
   margin-bottom: 15px;
 }
+.register-link {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: var(--light-text);
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
+
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+    <a href="account_settings.html" style="text-decoration:none; color: inherit;">
+        <button style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
+            <i class="fas fa-user-circle"></i>
+        </button>
+    </a>
+</div>
+
+
 <nav class="navbar">
   <ul>
     <li><a href="homepage.php">Home</a></li>
@@ -119,6 +164,7 @@ button:hover {
     <li><a href="contact.php">Contact</a></li>
   </ul>
 </nav>
+
 <div class="container">
 <h2>Login</h2>
 <?php if (isset($error)) { echo "<div class='error'>$error</div>"; } ?>
