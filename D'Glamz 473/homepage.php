@@ -160,7 +160,7 @@ footer {
 <?php if (isset($user)): ?>
     <span style="margin-top: 8px; font-weight: bold; font-size: 1.2em; color: #333;"><?php echo htmlspecialchars($user['username']); ?></span>
     <form action="logout.php" method="POST" style="margin-top: 8px;">
-        <button type="submit" style="background: none; border: 1px solid #333; padding: 4px 8px; cursor: pointer; font-size: 1em;">Log Out</button>
+        <button type="submit" style="background: none; border: none; padding: 4px 8px; cursor: pointer; font-size: 1em; color: #333;">Log Out</button>
     </form>
 <?php endif; ?>
 </div>
