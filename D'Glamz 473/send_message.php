@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </head>
         <body>
             <div class="message-box">
-                <h2>Thank you for your message! An admin will email you addressing your requirements.</h2>
+                <h2>Thank you for your message! An admin will email you addressing your inquiries.</h2>
                 <a href="homepage.php" class="btn">Back to Home</a>
             </div>
         </body>

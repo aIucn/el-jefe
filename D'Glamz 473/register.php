@@ -42,7 +42,7 @@ body {
   padding: 0;
   font-family: 'Arial', sans-serif;
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url('https://i.pinimg.com/originals/ca/92/06/ca92068e40ef52cadf49ea1d0a98bf6c') no-repeat center/cover;
+              url('https://i.pinimg.com/originals/ca/92/06/ca92068e40ef52cadf49ea1d0a98bf6c.gif') no-repeat center/cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -50,6 +50,32 @@ body {
 }
 .navbar {
   width: 100%;
+  background: linear-gradient(135deg, #0f2027, #203a43);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 15px;
+}
+.navbar a {
+  text-decoration: none;
+  color: var(--light-text);
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+}
+.navbar a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
 }
 .container {
   background-color: rgba(15, 32, 39, 0.8);
