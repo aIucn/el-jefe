@@ -1,0 +1,131 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+    --accent-color: #7b2ff7; 
+    --light-text: #ffffff;
+    --dark-background: #0f2027;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #0f2027, #203a43);
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--light-text);
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('https://i.pinimg.com/originals/ca/92/06/ca92068e40ef52cadf49ea1d0a98bf6c') no-repeat center/cover;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.categories {
+    padding: 50px 20px;
+    background-color: #111;
+    text-align: center;
+}
+
+form {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+}
+
+form h2 {
+    color: var(--light-text);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--light-text);
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Arial', sans-serif;
+}
+
+.btn {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    width: 100%;
+    align-self: center;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #f107a3, #7b2ff7);
+    transform: scale(1.05);
+}
+
+footer {
+    background: linear-gradient(135deg, #0f2027, #203a43);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
