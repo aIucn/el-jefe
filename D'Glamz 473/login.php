@@ -1,31 +1,40 @@
 <?php
-session_start();
-include 'db_connect.php';
+// login.php
+include 'db.php';
 
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-$stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
-$stmt->bind_param("s", $username);
-$stmt->execute();
+    // Prepare statement to fetch user
+    $stmt = $conn->prepare("SELECT id, username, email, password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
 
-$result = $stmt->get_result();
+    // Get result
+    $result = $stmt->get_result();
 
-if ($result && $result->num_rows === 1) {
-    $user = $result->fetch_assoc();
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
 
-    if (password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        header("Location: homepage.html");
-        exit;
+        // Verify password
+        if (password_verify($password, $user['password'])) {
+            // Success: set session or cookies as needed
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
+            // Optionally redirect to homepage
+            // header("Location: homepage.html");
+        } else {
+            echo "Invalid password.";
+        }
     } else {
-        echo "Invalid password.";
+        echo "User not found.";
     }
 
-} else {
-    echo "User not found.";
+    $stmt->close();
+    $conn->close();
 }
-
-$stmt->close();
-$conn->close();
 ?>

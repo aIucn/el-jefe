@@ -10,7 +10,6 @@
             --light-text: #ffffff;
             --dark-background: #0f2027;
         }
-
         body {
             margin: 0;
             padding: 0;
@@ -19,11 +18,12 @@
                         url('https://i.pinimg.com/originals/ca/92/06/ca92068e40ef52cadf49ea1d0a98bf6c.gif') no-repeat center/cover;
             height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            color: var(--light-text);
         }
-
+        .navbar {
+            width: 100%;
+        }
         .container {
             background-color: rgba(15, 32, 39, 0.8);
             padding: 40px;
@@ -31,25 +31,22 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             max-width: 400px;
             width: 90%;
-        }
-
-        h2 {
+            margin-top: 20px;
             text-align: center;
+        }
+        h2 {
             margin-bottom: 20px;
             font-size: 2rem;
             color: var(--light-text);
         }
-
         form {
             display: flex;
             flex-direction: column;
         }
-
         label {
             margin-bottom: 8px;
             font-weight: bold;
         }
-
         input[type="text"],
         input[type="email"],
         input[type="password"] {
@@ -61,7 +58,6 @@
             background-color: #222;
             color: var(--light-text);
         }
-
         button {
             padding: 12px;
             background: linear-gradient(135deg, #7b2ff7, #f107a3);
@@ -72,14 +68,68 @@
             cursor: pointer;
             transition: background 0.3s, transform 0.3s;
         }
-
         button:hover {
             background: linear-gradient(135deg, #f107a3, #7b2ff7);
             transform: scale(1.05);
         }
+        .login-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 25px;
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            text-align: center;
+        }
+        .login-link:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+        /* Navbar styles */
+        .navbar {
+            background: linear-gradient(135deg, #0f2027, #203a43);
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            margin: 0 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="homepage.html" class="active">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.php">Contact</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h2>Register</h2>
         <form action="register.php" method="POST">
@@ -94,6 +144,7 @@
 
             <button type="submit">Register</button>
         </form>
+        <a href="login.html" class="login-link">Already have an account? Log in here!</a>
     </div>
 </body>
 </html>
