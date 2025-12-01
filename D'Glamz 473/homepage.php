@@ -1,13 +1,10 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.html');
+    header('Location: login.php');
     exit();
 }
-
 require_once 'db.php';
-
 $user_id = $_SESSION['user_id'];
 $stmt = $conn->prepare("SELECT username, email FROM users WHERE id = ?");
 $stmt->bind_param('i', $user_id);
@@ -154,12 +151,18 @@ footer {
 </style>
 </head>
 <body>
-<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-start;">
     <a href="update_account.php" style="text-decoration:none; color: inherit;">
         <button style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
             <i class="fas fa-user-circle"></i>
         </button>
     </a>
+<?php if (isset($user)): ?>
+    <span style="margin-top: 8px; font-weight: bold; font-size: 1.2em; color: #333;"><?php echo htmlspecialchars($user['username']); ?></span>
+    <form action="logout.php" method="POST" style="margin-top: 8px;">
+        <button type="submit" style="background: none; border: 1px solid #333; padding: 4px 8px; cursor: pointer; font-size: 1em;">Log Out</button>
+    </form>
+<?php endif; ?>
 </div>
 <nav class="navbar">
     <ul>
