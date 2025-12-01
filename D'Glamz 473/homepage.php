@@ -151,19 +151,21 @@ footer {
 </style>
 </head>
 <body>
-<div style="position: fixed; top: 10px; left: 10px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-start;">
+<!-- User info and logout in fixed position with border -->
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-start; border: 1px solid #333; padding: 8px; border-radius: 8px; background: #fff;">
     <a href="update_account.php" style="text-decoration:none; color: inherit;">
         <button style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
             <i class="fas fa-user-circle"></i>
         </button>
     </a>
-<?php if (isset($user)): ?>
-    <span style="margin-top: 8px; font-weight: bold; font-size: 1.2em; color: #333;"><?php echo htmlspecialchars($user['username']); ?></span>
-    <form action="logout.php" method="POST" style="margin-top: 8px;">
-        <button type="submit" style="background: none; border: none; padding: 4px 8px; cursor: pointer; font-size: 1em; color: #333;">Log Out</button>
-    </form>
-<?php endif; ?>
+    <?php if (isset($user)): ?>
+        <div style="margin-top: 8px; padding: 4px 8px; border: 1px solid #333; border-radius: 4px; font-weight: bold; font-size: 1.2em; color: #333;">
+            <?php echo htmlspecialchars($user['username']); ?>
+        </div>
+        <a href="logout.php" style="margin-top: 8px; display: inline-block; padding: 4px 8px; border: 1px solid #333; border-radius: 4px; text-decoration: none; color: #333; font-weight: bold;">Log Out</a>
+    <?php endif; ?>
 </div>
+
 <nav class="navbar">
     <ul>
         <li><a href="homepage.php" class="active">Home</a></li>
