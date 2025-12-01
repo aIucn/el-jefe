@@ -1,3 +1,4 @@
+<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,185 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shop</title>
 <link rel="stylesheet" href="shop.css" />
-</head>
-<body>
+<style>
+:root {
+  --dark-background: #0b0b1f;
+  --light-text: #ffffff;
+  --accent-color: #7b2ff7;
+  --product-bg: #222;
+  --nav-bg: #111;
+  --nav-text: #fff;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: var(--dark-background);
+  color: var(--light-text);
+  padding: 0;
+}
+nav {
+  background-color: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  justify-content: space-between;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto;
+  justify-content: center;
+}
+#cart-toggle {
+  position: relative;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--nav-text);
+  padding: 0;
+}
+#cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+nav a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 1.1em;
+}
+nav a:hover {
+  color: var(--accent-color);
+}
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: var(--light-text);
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+}
+.product {
+  background-color: var(--product-bg);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.product img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.product h2 {
+  font-size: 1.2em;
+  margin: 10px 0 5px 0;
+  text-align: center;
+}
+.price {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+button {
+  background-color: var(--accent-color);
+  color: var(--light-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #5e1fbf;
+}
+#cart {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: #111;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+  z-index: 9999;
+}
+#cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#cart h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+#close-cart {
+  background: none;
+  border: none;
+  color: var(--light-text);
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+#cart-items li {
+  background-color: #222;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#checkout {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+}
+#checkout:hover {
+  background-color: #5e1fbf;
+}
+</style>
 <script>
   function addToCart(button) {
     const productDiv = button.parentElement;
@@ -17,12 +195,14 @@
     updateBadge();
   }
 </script>
+</head>
+<body>
 <nav>
   <div class="nav-links">
-    <a href="homepage.html">Home</a>
-    <a href="aboutus.html">About Us</a>
-    <a href="shop.html">Shop</a>
-    <a href="#contact">Contact</a>
+    <a href="homepage.php">Home</a>
+    <a href="aboutus.php" class="active">About Us</a>
+    <a href="shop.php">Shop</a>
+    <a href="contact.php">Contact</a>
   </div>
   <button id="cart-toggle" aria-label="Shopping Cart">
     🛒
@@ -107,20 +287,17 @@
     updateCartUI();
     updateBadge();
   }
-
   document.addEventListener('DOMContentLoaded', () => {
     window.cart = [];
     const cartButton = document.getElementById('cart-toggle');
     const cartPanel = document.getElementById('cart');
     const closeBtn = document.getElementById('close-cart');
     const cartBadge = document.getElementById('cart-badge');
-
     function updateBadge() {
       const count = window.cart.length;
       cartBadge.textContent = count;
       cartBadge.style.display = count > 0 ? 'flex' : 'none';
     }
-
     cartButton.onclick = () => {
       if (cartPanel.style.display === 'block') {
         cartPanel.style.display = 'none';
@@ -128,11 +305,9 @@
         cartPanel.style.display = 'block';
       }
     };
-
     closeBtn.onclick = () => {
       cartPanel.style.display = 'none';
     };
-
     function updateCartUI() {
       const cartItemsContainer = document.getElementById('cart-items');
       if (!cartItemsContainer) return;
@@ -152,7 +327,6 @@
         cartItemsContainer.appendChild(li);
       });
     }
-
     document.getElementById('checkout').onclick = () => {
       if (window.cart.length === 0) {
         alert('Your cart is empty!');
@@ -165,7 +339,6 @@
         document.getElementById('cart').style.display = 'none';
       }
     };
-
     updateBadge();
   });
 </script>
