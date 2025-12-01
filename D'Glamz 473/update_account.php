@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $user_id = $_SESSION['user_id'];
 
-    // Fetch current user data to compare
     $result = $conn->query("SELECT * FROM users WHERE id = $user_id");
     if ($result->num_rows === 0) {
         $conn->close();
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_email = trim($_POST['email']);
     $new_password = trim($_POST['password']);
 
-    // Determine which fields are changing
     $changes = [];
 
     if ($new_username !== $current_user['username']) {
@@ -43,18 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Validate required fields
     if (empty($new_username) || empty($new_email)) {
         $conn->close();
         die('Username and email are required.');
     }
 
-    // Update username and email
     $stmt = $conn->prepare("UPDATE users SET username = ?, email = ? WHERE id = ?");
     $stmt->bind_param('ssi', $new_username, $new_email, $user_id);
 
     if ($stmt->execute()) {
-        // If password is provided, update it
         if (!empty($new_password)) {
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
             $stmt_pass = $conn->prepare("UPDATE users SET password = ? WHERE id = ?");
@@ -64,8 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $stmt->close();
         $conn->close();
-
-        // Display success message with details
         ?>
         <!DOCTYPE html>
         <html lang="en">
