@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 require_once 'db.php';
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id';
 $stmt = $conn->prepare("SELECT username, email FROM users WHERE id = ?");
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
@@ -159,7 +159,7 @@ footer {
         </button>
     </a>
     <?php if (isset($user)): ?>
-        <div style="margin-top: 8px; padding: 4px 8px; border: 1px solid var(--accent-color); border-radius: 4px; font-weight: bold; font-size: 1.2em; color: #333;">
+        <div class="user-info-box">
             <?php echo htmlspecialchars($user['username']); ?>
         </div>
         <a href="logout.php" style="margin-top: 8px; display: inline-block; padding: 4px 8px; border: 1px solid var(--accent-color); border-radius: 4px; text-decoration: none; color: #333; font-weight: bold;">Log Out</a>
