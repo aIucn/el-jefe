@@ -11,6 +11,7 @@ $stmt->bind_param('i', $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
