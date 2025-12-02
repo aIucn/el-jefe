@@ -33,6 +33,10 @@ $conn->close();
 body {
     font-family: 'Arial', sans-serif;
     background-color: var(--dark-background);
+    background-image: url('https://i.pinimg.com/originals/ca/92/06/ca92068e40ef52cadf49ea1d0a98bf6c.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--light-text);
     line-height: 1.6;
     margin: 0;
