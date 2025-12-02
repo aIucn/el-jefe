@@ -272,10 +272,10 @@ button:hover {
     <p class="price">XCD $200.00</p>
     <button onclick="addToCart(this)">Add to Cart</button>
   </div>
-  <div class="product" data-name="Additional Item Example" data-price="100.00">
-    <img src="https://via.placeholder.com/180" alt="Additional Product"/>
+  <div class="product" data-name="Coach Bag" data-price="250.00">
+    <img src="https://coach.scene7.com/is/image/Coach/ccc70_imyee_a0?$mobileProductTile$" alt="Coach Bag"/>
     <h2>Additional Product Example</h2>
-    <p class="price">XCD $100.00</p>
+    <p class="price">XCD $250.00</p>
     <button onclick="addToCart(this)">Add to Cart</button>
   </div>
 </div>
