@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = new mysqli('localhost', 'root', '', 'mywebsite');
 
@@ -57,56 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt_pass->execute();
             $stmt_pass->close();
         }
+        $_SESSION['username'] = $new_username;
+        $_SESSION['email'] = $new_email;
+
         $stmt->close();
         $conn->close();
-        ?>
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Update Success</title>
-            <style>
-                body {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100vh;
-                    margin: 0;
-                    font-family: Arial, sans-serif;
-                    background-color: #f0f0f0;
-                }
-                .message {
-                    font-size: 1.5em;
-                    margin-bottom: 20px;
-                }
-                .details {
-                    margin-bottom: 20px;
-                }
-                .button {
-                    padding: 10px 20px;
-                    background-color: var(--accent-color);
-                    color: #fff;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    text-decoration: none;
-                }
-                .button:hover {
-                    background-color: #f107a3;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="message">Account has been updated successfully.</div>
-            <div class="details">
-                <strong>Changes made:</strong> <?php echo implode(', ', $changes); ?>.
-            </div>
-            <a href="homepage.php" class="button">Go to Home</a>
-        </body>
-        </html>
-        <?php
+
+        header('Location: homepage.php');
+        exit();
     } else {
         $stmt->close();
         $conn->close();

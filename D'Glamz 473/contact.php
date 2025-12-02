@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +47,6 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 1em;
-  transition: color 0.3s;
 }
 .navbar a:hover,
 .navbar a.active {

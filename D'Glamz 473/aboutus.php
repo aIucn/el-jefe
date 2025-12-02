@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,7 +154,6 @@ p {
         <li><a href="aboutus.php" class="active">About Us</a></li>
         <li><a href="shop.php">Shop</a></li>
         <li><a href="contact.php">Contact</a></li>
-        <li><a href="login.php">Login</a></li>
     </ul>
 </nav>
 <h1>About Us</h1>
