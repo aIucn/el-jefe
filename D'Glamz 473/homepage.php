@@ -45,11 +45,13 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .navbar ul {
     list-style: none;
     display: flex;
-    justify-content: center;
     margin: 0;
     padding: 0;
 }
@@ -66,6 +68,27 @@ body {
 .navbar a.active {
     color: var(--accent-color);
     transform: scale(1.1);
+}
+.user-info-container {
+    display: flex;
+    align-items: center;
+}
+.user-info-box {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.logout-btn {
+    margin-left: 10px;
+    padding: 4px 8px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    transition: background 0.3s;
+}
+.logout-btn:hover {
+    background: var(--accent-color);
 }
 .hero {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
@@ -152,20 +175,18 @@ footer {
 </style>
 </head>
 <body>
-<div style="position: fixed; top: 10px; left: 10px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-start; border: 1px solid var(--accent-color); padding: 8px; border-radius: 8px; background: #fff;">
-    <a href="update_account.php" style="text-decoration:none; color: inherit;">
-        <button style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
-            <i class="fas fa-user-circle"></i>
-        </button>
-    </a>
-    <?php if (isset($user)): ?>
-        <div class="user-info-box" style="margin-top:8px;">
-            <?php echo htmlspecialchars($user['username']); ?>
-        </div>
-        <a href="logout.php" style="margin-top: 8px; display: inline-block; padding: 4px 8px; border: 1px solid var(--accent-color); border-radius: 4px; text-decoration: none; color: #333; font-weight: bold;">Log Out</a>
-    <?php endif; ?>
-</div>
 <nav class="navbar">
+    <div class="user-info-container">
+        <a href="update_account.php" style="text-decoration:none; color:inherit;">
+            <button style="background:none; border:none; cursor:pointer; font-size:24px; color:#fff;">
+                <i class="fas fa-user-circle"></i>
+            </button>
+        </a>
+        <?php if (isset($user)): ?>
+            <div class="user-info-box"><?php echo htmlspecialchars($user['username']); ?></div>
+            <a href="logout.php" class="logout-btn">Log Out</a>
+        <?php endif; ?>
+    </div>
     <ul>
         <li><a href="homepage.php" class="active">Home</a></li>
         <li><a href="aboutus.php">About Us</a></li>
@@ -181,19 +202,19 @@ footer {
 <section class="categories">
     <h2>Shop by Category</h2>
     <div class="category-container">
-        <a href="shop.php" style="text-decoration: none; color: inherit;">
+        <a href="shop.php" style="text-decoration:none; color:inherit;">
             <div class="category-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/069/317/401/small/a-black-silhouette-of-a-man-standing-in-front-of-a-white-background-free-vector.jpg" alt="Men Fashion" />
                 <h3>Men</h3>
             </div>
         </a>
-        <a href="shop.php" style="text-decoration: none; color: inherit;">
+        <a href="shop.php" style="text-decoration:none; color:inherit;">
             <div class="category-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
                 <img src="https://previews.123rf.com/images/anartelman/anartelman1803/anartelman180300835/98519499-woman-silhouette-icon-on-white-background.jpg" alt="Women Fashion" />
                 <h3>Women</h3>
             </div>
         </a>
-        <a href="shop.php" style="text-decoration: none; color: inherit;">
+        <a href="shop.php" style="text-decoration:none; color:inherit;">
             <div class="category-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
                 <img src="https://static.vecteezy.com/system/resources/previews/008/956/590/non_2x/creative-abstract-black-silhouette-running-shoe-design-logo-design-template-free-vector.jpg" alt="Shoes" />
                 <h3>Shoes</h3>
