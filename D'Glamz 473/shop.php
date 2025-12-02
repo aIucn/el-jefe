@@ -272,9 +272,9 @@ button:hover {
     <p class="price">XCD $200.00</p>
     <button onclick="addToCart(this)">Add to Cart</button>
   </div>
-  <div class="product" data-name="Coach Bag" data-price="250.00">
-    <img src="https://coach.scene7.com/is/image/Coach/ccc70_imyee_a0?$mobileProductTile$" alt="Coach Bag"/>
-    <h2>Additional Product Example</h2>
+  <div class="product" data-name="Women's Coach Bag" data-price="250.00">
+    <img src="https://coach.scene7.com/is/image/Coach/ccc70_imyee_a0?$mobileProductTile$" alt="Women's Coach Bag"/>
+    <h2>Women's Coach Bag</h2>
     <p class="price">XCD $250.00</p>
     <button onclick="addToCart(this)">Add to Cart</button>
   </div>
