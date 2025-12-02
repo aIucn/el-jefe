@@ -311,6 +311,7 @@ button:hover {
       if (cartPanel.style.display === 'block') {
         cartPanel.style.display = 'none';
       } else {
+        updateCartUI();
         cartPanel.style.display = 'block';
       }
     };
@@ -350,6 +351,41 @@ button:hover {
     };
     updateBadge();
   });
+</script>
+<script>
+  function addToCart(button) {
+    const productDiv = button.parentElement;
+    const name = productDiv.dataset.name;
+    const price = productDiv.dataset.price;
+    window.cart.push({name, price});
+    updateCartUI();
+    updateBadge();
+    showAddMessage();
+  }
+
+  function showAddMessage() {
+    let messageDiv = document.getElementById('add-message');
+    if (!messageDiv) {
+      messageDiv = document.createElement('div');
+      messageDiv.id = 'add-message';
+      messageDiv.style.position = 'fixed';
+      messageDiv.style.top = '20px';
+      messageDiv.style.right = '20px';
+      messageDiv.style.backgroundColor = 'rgba(0,0,0,0.8)';
+      messageDiv.style.color = '#fff';
+      messageDiv.style.padding = '10px 20px';
+      messageDiv.style.borderRadius = '5px';
+      messageDiv.style.fontSize = '1em';
+      document.body.appendChild(messageDiv);
+    }
+    messageDiv.textContent = 'Added to cart';
+    messageDiv.style.display = 'block';
+
+    clearTimeout(window.addMsgTimeout);
+    window.addMsgTimeout = setTimeout(() => {
+      messageDiv.style.display = 'none';
+    }, 1000);
+  }
 </script>
 </body>
 </html>
