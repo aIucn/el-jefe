@@ -64,10 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $_SESSION['username'] = $new_username;
         $_SESSION['email'] = $new_email;
-
         $stmt->close();
         $conn->close();
-
         header('Location: homepage.php');
         exit();
     } else {
@@ -76,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error updating account.";
     }
 } else {
-    header('Location: update_account.php');
-    exit();
+    echo "Please submit the form.";
 }
 ?>

@@ -279,6 +279,14 @@ button:hover {
     <button onclick="addToCart(this)">Add to Cart</button>
   </div>
 </div>
+<div id="cart">
+  <div id="cart-header">
+    <h2>Shopping Cart</h2>
+    <button id="close-cart" aria-label="Close Cart">&times;</button>
+  </div>
+  <ul id="cart-items"></ul>
+  <button id="checkout">Checkout</button>
+</div>
 <script>
   function addToCart(button) {
     const productDiv = button.parentElement;
