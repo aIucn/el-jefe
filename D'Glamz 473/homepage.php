@@ -54,6 +54,8 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    justify-content: center; 
+    flex: 1; 
 }
 .navbar li {
     margin: 0 20px;
@@ -176,7 +178,7 @@ footer {
 </head>
 <body>
 <nav class="navbar">
-    <div class="user-info-container">
+    <div class="user-info-container" style="display:flex; align-items:center;">
         <a href="update_account.php" style="text-decoration:none; color:inherit;">
             <button style="background:none; border:none; cursor:pointer; font-size:24px; color:#fff;">
                 <i class="fas fa-user-circle"></i>
