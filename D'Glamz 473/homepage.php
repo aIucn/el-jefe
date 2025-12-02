@@ -159,7 +159,7 @@ footer {
         </button>
     </a>
     <?php if (isset($user)): ?>
-        <div class="user-info-box">
+        <div class="user-info-box" style="margin-top:8px;">
             <?php echo htmlspecialchars($user['username']); ?>
         </div>
         <a href="logout.php" style="margin-top: 8px; display: inline-block; padding: 4px 8px; border: 1px solid var(--accent-color); border-radius: 4px; text-decoration: none; color: #333; font-weight: bold;">Log Out</a>
